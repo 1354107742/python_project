@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>出版社列表页面</title>
+</head>
+<body>
+
+<h1>出版社列表</h1>
+<a href="/list_add/">添加出版社</a>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>出版社id</th>
+        <th>名称</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in ret %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>
+                <a href="/list_del/?id={{ i.id }}">删除</a>
+                <a href="/list_edit/?id={{ i.id }}">编辑</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1>信息收集卡
+                    <small>共三步</small>
+                </h1>
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                     aria-valuemax="100" style="width: 33%;">
+                    1/3
+                </div>
+            </div>
+            <!--面板-->
+            <div class="panel panel-primary">
+                <div class="panel-heading">基本信息
+                    <span class="glyphicon glyphicon-pushpin pull-right"></span>
+                </div>
+                <div class="panel-body">
+                    <!--表单-->
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">姓名</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">手机号</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="inputPassword3" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">邮箱</label>
+                            <div class="col-sm-4">
+                                <input type="email" class="form-control" id="inputPassword" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                            <div class="col-sm-4">
+                                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">头像</label>
+                            <div class="col-sm-4">
+                                <input type="file" id="inputPassword5" placeholder="Password">
+                                <span class="help-block">只支持jpg,png，gif格式</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">属性</label>
+                            <div class="col-sm-10">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"
+                                               checked>
+                                        Option one is this and that&mdash;be sure to include why it's great
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                        Option two can be something else and selecting it will deselect option one
+                                    </label>
+                                </div>
+                                <div class="radio disabled">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3"
+                                               disabled>
+                                        Option three is disabled
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--下一步按钮-->
+            <button class="btn btn-success pull-right">下一步</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

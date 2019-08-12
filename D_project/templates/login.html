@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>欢迎登录</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+        body {
+            background-color: #eeeeee;
+        }
+
+        .login-box {
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 login-box">
+            <form class="form-horizontal" action="/login_tr/" method="post">
+                <div class="col-sm-9">
+                    <h2 class="text-center">请登录</h2>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-sm-9">
+                        <div class="input-group margin-bottom-sm">
+                            <label for="email" class="hidden">邮箱</label>
+                            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                            <input class="form-control" name="email" type="text" id="email" placeholder="您的邮箱地址">
+                        </div>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <label for="password" class="hidden">密码</label>
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" name="pwd" type="password" id="password" placeholder="请输入密码">
+                        </div>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 记住我
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <button type="submit" id="b1" class="btn btn-block btn-primary">登录</button>
+                        <p style="color: red;text-align: center">{{ error_msg }}</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/static/jquery-3.3.1.js"></script>
+</body>
+</html>
