@@ -1,6 +1,7 @@
 from django.shortcuts import HttpResponse, render, redirect
 from app01.models import User
 from app01.models import Publisher
+from app01.models import Author
 
 error_msg = ""
 
@@ -67,7 +68,7 @@ def list_del(request):
 def list_edit(request):
     #获取编辑出版社的id（为了操作）
     edit_id  = request.GET.get('id')
-    if request.method == 'POST': 
+    if request.method == 'POST':
         #取出用户编辑之后的数据
         new_name = request.POST.get('name')
         #对数据进行修改
@@ -84,3 +85,57 @@ def list_edit(request):
     #进入到编辑页面表单
     print(ret)
     return render(request,'list_edit2.html',{'edit_name': ret})
+
+def book_view(request):
+    #1.查询所有图书数据库中的信息
+    book = Author.objects.all()
+    #2.将循环得到的数据回传到当前目录
+    return render(request,"book_view.html",{"book": book})
+
+def book_add(request):
+    #首先要判断是为GET还是POST（跟前面一个道理）
+    if request.method == "POST":
+        #1.首先得到用户数据
+        add_name = request.POST.get("book_title")
+        add_publisher  = request.POST.get("publisher_id")
+        #2.向图书数据库中添加数据
+        Author.objects.create(title=add_name, publisher_id=add_publisher)
+        return redirect('/book_view/')
+    #返回原主页
+    press_data = Publisher.objects.all()
+    return render(request,"book_add.html",{'press_list': press_data})
+
+
+def book_del(request):
+    #基本功能与出版社功能实现方法是相同的
+    #获取要删除的id
+    del_id = request.GET.get('id')
+    #在数据库对获取参数进行删除
+    Author.objects.filter(id = del_id).delete()
+    #直接刷新当前界面
+    # return redirect('/book_view/')
+    #跳转到删除反馈
+    return render(request,"delete_success.html")
+
+def book_edit(request):
+    #获取编辑图书的id
+    edit_id = request.GET.get("id")
+    #在数据库中查找到该书
+    edit_id_obj = Author.objects.get(id = edit_id)
+    #对提交的新数据进行修改
+    if request.method == "POST":
+        edit_title = request.POST.get("book_title")
+        edit_pub = request.POST.get("publisher_id")
+        #修改图书名字
+        edit_id_obj.title = edit_title
+        #修改出版社名
+        edit_id_obj.publisher_id = edit_pub
+        #保存当前修改
+        edit_id_obj.save()
+        return redirect("/book_view/")
+    press_data = Publisher.objects.all()
+    return render(request, "book_edit.html", {
+        'book_id_obj': edit_id_obj,
+        "press_data": press_data
+    })
+

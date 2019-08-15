@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>添加书籍</title>
+</head>
+<body>
+
+<h1>添加书籍</h1>
+<form action="/book_add/" method="post">
+    <input type="text" name="book_title">
+    <select name="publisher_id">
+        {% for press in press_list %}
+            <option value="{{ press.id }}">{{ press.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit">
+</form>
+</body>
+ </html>

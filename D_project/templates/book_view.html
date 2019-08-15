@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>书籍列表页</title>
+</head>
+<body>
+
+<a href="/book_add/">添加书籍</a>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>书id</th>
+        <th>书名称</th>
+        <th>出版社</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for msg in book %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ msg.id }}</td>
+                <td>{{ msg.title }}</td>
+                <td>{{ msg.publisher.name }}</td>
+                <td>
+                    <a href="/book_del/?id={{ msg.id }}">删除</a>
+                    <a href="/book_edit/?id={{ msg.id }}">编辑</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+
+<p>删除书籍成功， <span id="s1">3</span>秒钟之后跳转回书籍列表页面！</p>
+
+</body>
+<script>
+    // 每隔一秒钟就修改s1的text
+    var currentNum = document.getElementById('s1').innerText;
+
+    var t2 = setInterval(function () {
+        currentNum = document.getElementById('s1').innerText;
+        document.getElementById('s1').innerText = currentNum - 1;
+        if (currentNum == 1) {
+            clearInterval(t2);
+            location.href = '/book_view/';
+        }
+    }, 1000);
+</script>
+</html>
